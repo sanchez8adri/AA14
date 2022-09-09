@@ -1,0 +1,7 @@
+Temperatura de hoy 2022-09-09 : 32
+Chocolate Blanco - Cantidad Producida: 1000 - Precio: 20.0$
+Chocolate Negro - Cantidad Producida: 1500 - Precio: 15.0$
+Chocolate Con Almendras - Cantidad Producida: 1200 - Precio: 17.5$
+Chocolate Con Castañas de Caju - Cantidad Producida: 1300 - Precio: 25.0$
+Chocolate En Rama - Cantidad Producida: 100 - Precio: 10.0$
+Chocolate Con 70% de cacao - Cantidad Producida: 1500 - Precio: 15.0$

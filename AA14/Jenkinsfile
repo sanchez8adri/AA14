@@ -1,0 +1,19 @@
+import java.time.LocalDate
+pipeline{
+agent any 
+stages{ 
+stage('Main'){ 
+steps{ 
+script{ 
+println LocalDate.now() 
+println 'Chocolate Blanco - Cantidad Producida: 1000 - Precio: 20.0'   
+println 'Chocolate Negro - Cantidad Producida: 1500 - Precio: 15.0'   
+println 'Chocolate Con Almendras - Cantidad Producida: 1200 - Precio: 17.5'   
+println 'Chocolate Con Castañas de Caju - Cantidad Producida: 1300 - Precio: 25.0'   
+println 'Chocolate En Rama - Cantidad Producida: 100 - Precio: 10.0'   
+println 'Chocolate Con 70% de cacao - Cantidad Producida: 1500 - Precio: 15.0'   
+} 
+} 
+} 
+} 
+} 
