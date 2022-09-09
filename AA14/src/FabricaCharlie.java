@@ -42,6 +42,9 @@ public class FabricaCharlie implements Produccion{
 			
 			produccion.produccionActiva(temperaturaActual);
 			
+			//Prueba temperatura superior a 40
+			//produccion.produccionActiva(42);
+			
 			
 			
 		}
@@ -66,6 +69,9 @@ public class FabricaCharlie implements Produccion{
 				
 				bw.close();
 				fw.close();
+				
+				crearJenkinsSinProd();
+				
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -88,7 +94,7 @@ public class FabricaCharlie implements Produccion{
 				chocolatesProducidos.add(new Chocolate("CharlieFabrick", 10, "En Rama", 100));
 				chocolatesProducidos.add(new Chocolate("CharlieFabrick", 15, "Con 70% de cacao", 1500));
 				
-				bw.write("Temperatura de hoy "+ LocalDate.now()+" : " +temperaturaActual+ "\n");
+				bw.write("Temperatura máximo de hoy "+ LocalDate.now()+" : " +temperaturaActual+ "\n");
 				for(Chocolate chocolate : chocolatesProducidos) {
 					bw.write("Chocolate " +chocolate.getTipo() + " - Cantidad Producida: " +chocolate.getCantidadProducida()+ " - Precio: " +chocolate.getPrecio()+ "$\n");
 					System.out.println("Chocolate " +chocolate.getTipo() + " - Cantidad Producida: " +chocolate.getCantidadProducida()+ " - Precio: " +chocolate.getPrecio()+ "\n");
@@ -137,5 +143,32 @@ public class FabricaCharlie implements Produccion{
 		bw.close();
 		fw.close();
 	}
+		
+		public static void crearJenkinsSinProd() throws IOException {
+			
+			
+			FileWriter fw = new FileWriter(new File("Jenkinsfile"));
+			BufferedWriter bw = new BufferedWriter(fw);
+			
+			StringBuilder Jenkins = new StringBuilder();
+	        Jenkins.append("import java.time.LocalDate\r\n");
+	        Jenkins.append("pipeline{\r\n");
+	        Jenkins.append("agent any \r\n");
+	        Jenkins.append("stages{ \r\n");
+	        Jenkins.append("stage('Main'){ \r\n");
+	        Jenkins.append("steps{ \r\n");
+	        Jenkins.append("script{ \r\n");
+	        Jenkins.append("println LocalDate.now() \r\n");
+	        Jenkins.append("println 'Hoy no se pudo producir chocolate debido a las altas temperaturas' \r\n");
+	        Jenkins.append("} \r\n");
+	        Jenkins.append("} \r\n");
+	        Jenkins.append("} \r\n");
+	        Jenkins.append("} \r\n");
+	        Jenkins.append("} \r\n");
+
+	        bw.write(Jenkins.toString());
+			bw.close();
+			fw.close();
+		} 
 
 }
